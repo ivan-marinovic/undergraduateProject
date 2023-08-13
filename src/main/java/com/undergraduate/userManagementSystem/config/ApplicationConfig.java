@@ -1,6 +1,6 @@
-package com.ivan.secureScaleApi.config;
+package com.undergraduate.userManagementSystem.config;
 
-import com.ivan.secureScaleApi.repository.UserRepository;
+import com.undergraduate.userManagementSystem.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

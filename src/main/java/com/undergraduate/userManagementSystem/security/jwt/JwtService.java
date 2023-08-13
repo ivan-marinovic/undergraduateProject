@@ -1,4 +1,4 @@
-package com.ivan.secureScaleApi.security.jwt;
+package com.undergraduate.userManagementSystem.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

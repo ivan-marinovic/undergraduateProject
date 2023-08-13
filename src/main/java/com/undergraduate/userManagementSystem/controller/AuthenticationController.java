@@ -1,9 +1,9 @@
-package com.ivan.secureScaleApi.controller;
+package com.undergraduate.userManagementSystem.controller;
 
-import com.ivan.secureScaleApi.controller.dto.AuthenticationRequest;
-import com.ivan.secureScaleApi.controller.dto.AuthenticationResponse;
-import com.ivan.secureScaleApi.controller.dto.RegisterRequest;
-import com.ivan.secureScaleApi.service.AuthenticationService;
+import com.undergraduate.userManagementSystem.controller.dto.AuthenticationRequest;
+import com.undergraduate.userManagementSystem.controller.dto.AuthenticationResponse;
+import com.undergraduate.userManagementSystem.controller.dto.RegisterRequest;
+import com.undergraduate.userManagementSystem.service.AuthenticationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

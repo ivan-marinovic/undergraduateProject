@@ -1,26 +1,16 @@
-package com.ivan.secureScaleApi.controller.dto;
+package com.undergraduate.userManagementSystem.controller.dto;
 
-public class RegisterRequest {
+public class AuthenticationRequest {
 
-    private String fullName;
     private String email;
     private String password;
 
-    public RegisterRequest() {
+    public AuthenticationRequest() {
     }
 
-    public RegisterRequest(String fullName, String email, String password) {
-        this.fullName = fullName;
+    public AuthenticationRequest(String email, String password) {
         this.email = email;
         this.password = password;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
     }
 
     public String getEmail() {

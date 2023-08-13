@@ -1,4 +1,4 @@
-package com.ivan.secureScaleApi.controller.dto;
+package com.undergraduate.userManagementSystem.controller.dto;
 
 import lombok.Builder;
 import lombok.Data;

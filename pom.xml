@@ -8,11 +8,11 @@
 		<version>3.1.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ivan</groupId>
-	<artifactId>secureScaleApi</artifactId>
+	<groupId>com.undegraduate</groupId>
+	<artifactId>userManagementSystem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>secureScaleApi</name>
-	<description>SecureScaleAPI is a robust and scalable REST API platform, leveraging Spring Security, designed to ensure the implementation and development of a secure and scalable API ecosystem.</description>
+	<name>userManagementSystem</name>
+	<description>User Management System</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

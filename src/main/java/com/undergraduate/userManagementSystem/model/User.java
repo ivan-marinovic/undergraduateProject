@@ -1,4 +1,4 @@
-package com.ivan.secureScaleApi.model;
+package com.undergraduate.userManagementSystem.model;
 
 import jakarta.persistence.*;
 import lombok.Builder;

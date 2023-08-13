@@ -1,6 +1,6 @@
-package com.ivan.secureScaleApi.repository;
+package com.undergraduate.userManagementSystem.repository;
 
-import com.ivan.secureScaleApi.model.User;
+import com.undergraduate.userManagementSystem.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,13 +1,13 @@
-package com.ivan.secureScaleApi;
+package com.undergraduate.userManagementSystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SecureScaleApiApplication {
+public class UserManagementSystem {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SecureScaleApiApplication.class, args);
+		SpringApplication.run(UserManagementSystem.class, args);
 	}
 
 }

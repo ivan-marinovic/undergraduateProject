@@ -1,4 +1,4 @@
-package com.ivan.secureScaleApi.security.jwt;
+package com.undergraduate.userManagementSystem.security.jwt;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

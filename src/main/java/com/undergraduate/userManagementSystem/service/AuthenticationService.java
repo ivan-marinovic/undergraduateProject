@@ -1,11 +1,11 @@
-package com.ivan.secureScaleApi.service;
+package com.undergraduate.userManagementSystem.service;
 
-import com.ivan.secureScaleApi.controller.dto.AuthenticationRequest;
-import com.ivan.secureScaleApi.controller.dto.AuthenticationResponse;
-import com.ivan.secureScaleApi.controller.dto.RegisterRequest;
-import com.ivan.secureScaleApi.model.User;
-import com.ivan.secureScaleApi.repository.UserRepository;
-import com.ivan.secureScaleApi.security.jwt.JwtService;
+import com.undergraduate.userManagementSystem.controller.dto.AuthenticationRequest;
+import com.undergraduate.userManagementSystem.controller.dto.AuthenticationResponse;
+import com.undergraduate.userManagementSystem.controller.dto.RegisterRequest;
+import com.undergraduate.userManagementSystem.model.User;
+import com.undergraduate.userManagementSystem.repository.UserRepository;
+import com.undergraduate.userManagementSystem.security.jwt.JwtService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;

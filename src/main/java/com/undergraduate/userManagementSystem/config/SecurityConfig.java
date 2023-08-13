@@ -1,6 +1,6 @@
-package com.ivan.secureScaleApi.config;
+package com.undergraduate.userManagementSystem.config;
 
-import com.ivan.secureScaleApi.security.jwt.JwtAuthenticationFilter;
+import com.undergraduate.userManagementSystem.security.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
