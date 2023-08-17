@@ -32,12 +32,12 @@ public class User implements UserDetails {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id")
     )
-    private Set<Role> roles = new HashSet<>();
+    private List<Role> roles;
 
     public User() {
     }
 
-    public User(Long userId, String fullName, String email, String password, boolean enable, Set<Role> roles) {
+    public User(Long userId, String fullName, String email, String password, boolean enable, List<Role> roles) {
         this.userId = userId;
         this.fullName = fullName;
         this.email = email;
@@ -82,11 +82,11 @@ public class User implements UserDetails {
         this.enable = enable;
     }
 
-    public Set<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 

@@ -1,4 +1,4 @@
-package com.undergraduate.userManagementSystem.controller.dto;
+package com.undergraduate.userManagementSystem.dto.auth;
 
 public class AuthenticationRequest {
 

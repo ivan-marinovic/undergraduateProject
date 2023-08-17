@@ -1,8 +1,8 @@
 package com.undergraduate.userManagementSystem.service;
 
-import com.undergraduate.userManagementSystem.controller.dto.AuthenticationRequest;
-import com.undergraduate.userManagementSystem.controller.dto.AuthenticationResponse;
-import com.undergraduate.userManagementSystem.controller.dto.RegisterRequest;
+import com.undergraduate.userManagementSystem.dto.auth.AuthenticationRequest;
+import com.undergraduate.userManagementSystem.dto.auth.AuthenticationResponse;
+import com.undergraduate.userManagementSystem.dto.auth.RegisterRequest;
 import com.undergraduate.userManagementSystem.model.User;
 import com.undergraduate.userManagementSystem.repository.UserRepository;
 import com.undergraduate.userManagementSystem.security.jwt.JwtService;

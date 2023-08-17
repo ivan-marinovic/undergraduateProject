@@ -1,9 +1,13 @@
 package com.undergraduate.userManagementSystem.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Data;
 
 @Entity
 @Table(name = "roles")
+@Data
+@Builder
 public class Role {
     @Id
     @Column(name = "role_id")
