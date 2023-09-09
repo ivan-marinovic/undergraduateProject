@@ -1,12 +1,19 @@
 package com.undergraduate.userManagementSystem.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "roles")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Role {
     @Id
@@ -14,29 +21,9 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer roleId;
     @Column(name = "name")
+    @NotEmpty
     private String name;
 
-    public Role() {
-    }
-
-    public Role(Integer roleId, String name) {
-        this.roleId = roleId;
-        this.name = name;
-    }
-
-    public Integer getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
 }
