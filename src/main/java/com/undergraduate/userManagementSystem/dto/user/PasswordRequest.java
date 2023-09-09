@@ -1,6 +1,5 @@
-package com.undergraduate.userManagementSystem.dto.auth;
+package com.undergraduate.userManagementSystem.dto.user;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,12 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AuthenticationRequest {
+public class PasswordRequest {
 
-    @Email
-    private String email;
     @Size(min = 8)
     private String password;
-
-
 }

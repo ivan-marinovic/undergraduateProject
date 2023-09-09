@@ -1,23 +1,23 @@
 package com.undergraduate.userManagementSystem.dto.user;
 
-import com.undergraduate.userManagementSystem.dto.role.RoleResponse;
-import com.undergraduate.userManagementSystem.model.Role;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserResponse {
+public class UserProfileRequest {
 
-    private Long userId;
+    @NotEmpty
     private String fullName;
+    @Email
     private String email;
-    private boolean enable;
-    private Set<RoleResponse> roles;
+    @Size(min = 8)
+    private String password;
 }
