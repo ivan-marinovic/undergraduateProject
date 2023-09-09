@@ -1,5 +1,7 @@
 package com.undergraduate.userManagementSystem.service.conversion;
 
+import com.undergraduate.userManagementSystem.dto.role.RoleResponse;
+import com.undergraduate.userManagementSystem.dto.user.UserProfileRequest;
 import com.undergraduate.userManagementSystem.dto.user.UserRequest;
 import com.undergraduate.userManagementSystem.dto.user.UserResponse;
 import com.undergraduate.userManagementSystem.model.User;
@@ -7,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class UserConversionService {
@@ -20,13 +24,25 @@ public class UserConversionService {
                 .build();
     }
 
+    public User convertProfileToModel(UserProfileRequest userProfileRequest) {
+        return User.builder()
+                .fullName(userProfileRequest.getFullName())
+                .email(userProfileRequest.getEmail())
+                .password(userProfileRequest.getPassword())
+                .build();
+    }
+
     public UserResponse convertToDto(User user) {
+        Set<RoleResponse> roleResponses = user.getRoles().stream()
+                .map(role -> new RoleResponse(role.getRoleId(), role.getName()))
+                .collect(Collectors.toSet());
+
         return UserResponse.builder()
                 .userId(user.getUserId())
                 .fullName(user.getFullName())
                 .email(user.getEmail())
                 .enable(user.isEnable())
-                .roles(user.getRoles())
+                .roles(roleResponses)
                 .build();
     }
 

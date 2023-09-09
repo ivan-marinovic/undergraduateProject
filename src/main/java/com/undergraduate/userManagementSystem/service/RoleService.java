@@ -6,8 +6,10 @@ import com.undergraduate.userManagementSystem.model.Role;
 import com.undergraduate.userManagementSystem.repository.RoleRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class RoleService {
@@ -38,6 +40,11 @@ public class RoleService {
         } else {
             return optionalRole.get();
         }
+    }
+
+    public Set<Role> findByName(String name) {
+        Optional<Role> role = roleRepository.findByName(name);
+        return role.map(Collections::singleton).orElse(Collections.emptySet());
     }
 
     public void deleteById(Integer roleId) {
