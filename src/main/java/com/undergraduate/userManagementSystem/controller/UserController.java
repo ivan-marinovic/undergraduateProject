@@ -6,14 +6,18 @@ import com.undergraduate.userManagementSystem.dto.user.UserResponse;
 import com.undergraduate.userManagementSystem.model.User;
 import com.undergraduate.userManagementSystem.service.UserService;
 import com.undergraduate.userManagementSystem.service.conversion.UserConversionService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/users")
+@PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
     private final UserService userService;
@@ -25,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse> create(@RequestBody UserRequest userRequest) {
+    public ResponseEntity<ApiResponse> create(@Valid @RequestBody UserRequest userRequest) {
         userService.create(userConversionService.convertToModel(userRequest), userRequest.getRoleId());
         return new ResponseEntity<>(new ApiResponse(1, "User successfully created!"), HttpStatus.CREATED);
     }
@@ -53,9 +57,8 @@ public class UserController {
     @PutMapping("/{userId}")
     public ResponseEntity<ApiResponse> update(
             @PathVariable(name = "userId") Long userId,
-            @RequestBody UserRequest userRequest) {
+            @Valid @RequestBody UserRequest userRequest) {
         userService.update(userId, userConversionService.convertToModel(userRequest), userRequest.getRoleId());
         return new ResponseEntity<>(new ApiResponse(1, "User successfully updated"), HttpStatus.OK);
     }
-
 }

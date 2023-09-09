@@ -4,6 +4,7 @@ import com.undergraduate.userManagementSystem.dto.auth.AuthenticationRequest;
 import com.undergraduate.userManagementSystem.dto.auth.AuthenticationResponse;
 import com.undergraduate.userManagementSystem.dto.auth.RegisterRequest;
 import com.undergraduate.userManagementSystem.service.AuthenticationService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,14 +23,14 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
-            @RequestBody RegisterRequest request
+            @Valid @RequestBody RegisterRequest request
     ) {
         return ResponseEntity.ok(authenticationService.register(request));
     }
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
-            @RequestBody AuthenticationRequest authenticationRequest
+            @Valid @RequestBody AuthenticationRequest authenticationRequest
             ) {
         return ResponseEntity.ok(authenticationService.authenticate(authenticationRequest));
     }

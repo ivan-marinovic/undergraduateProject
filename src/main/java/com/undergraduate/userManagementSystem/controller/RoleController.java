@@ -5,14 +5,17 @@ import com.undergraduate.userManagementSystem.dto.role.RoleRequest;
 import com.undergraduate.userManagementSystem.dto.role.RoleResponse;
 import com.undergraduate.userManagementSystem.service.RoleService;
 import com.undergraduate.userManagementSystem.service.conversion.RoleConversionService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/roles")
+@PreAuthorize("hasRole('ADMIN')")
 public class RoleController {
 
     private final RoleService roleService;
@@ -24,7 +27,7 @@ public class RoleController {
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse> create(@RequestBody RoleRequest roleRequest) {
+    public ResponseEntity<ApiResponse> create(@Valid @RequestBody RoleRequest roleRequest) {
         roleService.create(roleConversionService.convertToModel(roleRequest));
         return new ResponseEntity<>(new ApiResponse(1, "Role successfully created!"), HttpStatus.CREATED);
     }
@@ -48,7 +51,7 @@ public class RoleController {
     }
 
     @PutMapping("/{roleId}")
-    public ResponseEntity<ApiResponse> update(@PathVariable(name = "roleId") Integer roleId, @RequestBody RoleRequest roleRequest) {
+    public ResponseEntity<ApiResponse> update(@PathVariable(name = "roleId") Integer roleId,@Valid @RequestBody RoleRequest roleRequest) {
         roleService.update(roleId, roleConversionService.convertToModel(roleRequest));
         return new ResponseEntity<>(new ApiResponse(1, "Role successfully updated"), HttpStatus.OK);
     }
