@@ -29,8 +29,8 @@ public class AuthenticationService {
         this.roleService = roleService;
     }
 
-    @Value("${default.role}")
-    private String DEFAULT_ROLE;
+    @Value("${role.user}")
+    private String ROLE_USER;
 
     public AuthenticationResponse register(RegisterRequest request) {
 
@@ -39,7 +39,7 @@ public class AuthenticationService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .enable(true)
-                .roles(roleService.findByName(DEFAULT_ROLE))
+                .roles(roleService.findByName(ROLE_USER))
                 .build();
 
         userRepository.save(user);
