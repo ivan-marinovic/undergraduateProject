@@ -1,7 +1,6 @@
 package com.undergraduate.userManagementSystem.dto.user;
 
 import com.undergraduate.userManagementSystem.dto.role.RoleResponse;
-import com.undergraduate.userManagementSystem.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
