@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/profiles")
-@PreAuthorize("hasRole('USER')")
 public class UserProfileController {
 
     private final UserService userService;
