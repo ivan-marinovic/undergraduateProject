@@ -57,6 +57,7 @@ services:
     build:
       context: .
       dockerfile: DockerfileNginx.yml
+    container_name: nginx
     ports:
       - "80:80"
     networks:
