@@ -3,6 +3,7 @@ package com.undergraduate.userManagementSystem.service;
 import com.undergraduate.userManagementSystem.dto.auth.AuthenticationRequest;
 import com.undergraduate.userManagementSystem.dto.auth.AuthenticationResponse;
 import com.undergraduate.userManagementSystem.dto.auth.RegisterRequest;
+import com.undergraduate.userManagementSystem.exception.UserAlreadyExistsException;
 import com.undergraduate.userManagementSystem.model.User;
 import com.undergraduate.userManagementSystem.repository.UserRepository;
 import com.undergraduate.userManagementSystem.security.jwt.JwtService;
@@ -11,6 +12,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class AuthenticationService {
@@ -33,6 +36,12 @@ public class AuthenticationService {
     private String ROLE_USER;
 
     public AuthenticationResponse register(RegisterRequest request) {
+
+        Optional<User> optionalUser = userRepository.findByEmail(request.getEmail());
+
+        if (optionalUser.isEmpty()) {
+            throw new UserAlreadyExistsException("User with email " + request.getEmail() + " already exists");
+        }
 
         var user = User.builder()
                 .fullName(request.getFullName())
