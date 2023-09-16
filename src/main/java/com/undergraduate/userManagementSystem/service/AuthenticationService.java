@@ -39,7 +39,7 @@ public class AuthenticationService {
 
         Optional<User> optionalUser = userRepository.findByEmail(request.getEmail());
 
-        if (optionalUser.isEmpty()) {
+        if (optionalUser.isPresent()) {
             throw new UserAlreadyExistsException("User with email " + request.getEmail() + " already exists");
         }
 
