@@ -87,7 +87,6 @@ public class UserService {
         updatedUser.setFullName(user.getFullName());
         updatedUser.setEmail(user.getEmail());
         updatedUser.setPassword(passwordEncoder.encode(user.getPassword()));
-        updatedUser.setEnable(user.isEnable());
         userRepository.save(updatedUser);
     }
 
