@@ -3,6 +3,7 @@ package com.undergraduate.userManagementSystem.service;
 import com.undergraduate.userManagementSystem.exception.RoleAlreadyExistsException;
 import com.undergraduate.userManagementSystem.exception.RoleDoesNotExistsException;
 import com.undergraduate.userManagementSystem.model.Role;
+import com.undergraduate.userManagementSystem.model.User;
 import com.undergraduate.userManagementSystem.repository.RoleRepository;
 import org.springframework.stereotype.Service;
 
@@ -48,7 +49,13 @@ public class RoleService {
     }
 
     public void deleteById(Integer roleId) {
-        roleRepository.delete(findById(roleId));
+        Role roleToDelete = findById(roleId);
+
+        for (User user : roleToDelete.getUsers()) {
+            user.getRoles().remove(roleToDelete);
+        }
+
+        roleRepository.delete(roleToDelete);
     }
 
     public void update(Integer roleId, Role role) {
